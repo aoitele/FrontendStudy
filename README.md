@@ -13,8 +13,10 @@
 - 非同期処理
 - Promise
 
-#### 課題 3: TodoApp を作ろう
+#### 課題 3: レシピリストを Vue.js で作ろう
 
+- Vue.js 基礎
+- DB 取得/更新
 - 状態管理(state)
 - ライフサイクル
 - Component 単位での開発

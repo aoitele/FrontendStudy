@@ -11,7 +11,7 @@
         <h3>Pages / doc</h3>
         <ul>
             <li>
-            <router-link to="/favorite">Favorite Recipes</router-link> / 
+            <router-link to="/favorite-recipe">Favorite Recipes</router-link> / 
             <a href="https://github.com/aoitele/FrontendStudy/tree/main/3_vueApp" target="_blank" rel="noopener">readme</a>
             </li>
         </ul>

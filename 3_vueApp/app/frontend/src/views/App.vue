@@ -1,22 +1,10 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Index msg="3_vueApp Tasks"/>
+    <router-view />
   </div>
 </template>
 
-<script>
-import Index from './components/Index.vue'
-
-export default {
-  name: 'App',
-  components: {
-    Index
-  }
-}
-</script>
-
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

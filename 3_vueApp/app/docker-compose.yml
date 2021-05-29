@@ -1,0 +1,13 @@
+version: "3"
+services:
+  web:
+    container_name: vue_recipeListApp
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - 3001:3001
+    volumes:
+      - ./frontend:/var/www
+      - /var/www/node_modules
+    tty: true

@@ -26,7 +26,7 @@ npx vue create (アプリ名)
 CompositonAPIなど使わない事もあるので、今回は2系で。
 ```
 
-#### 起動
+## 起動
 
 ```
 cd (作成したディレクトリ)
@@ -38,3 +38,9 @@ App running at:
 ```
 
 アクセスすると welcome 画面が表示される
+
+## 完成イメージ
+
+#### お気に入りレシピ一覧
+
+![TaskImage 1](doc/pageimage_favorite-recipe.jpg)

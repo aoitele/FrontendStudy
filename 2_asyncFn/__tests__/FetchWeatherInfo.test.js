@@ -1,5 +1,6 @@
 const FetchWeatherInfo = require("../modules/FetchWeatherInfo");
 
+<<<<<<< HEAD
 describe("FetchWeatherInfo Test", () => {
   test('get data of PublishOffice',()=>{
      expect.assertions(1); 
@@ -10,3 +11,6 @@ describe("FetchWeatherInfo Test", () => {
      
   })
 });
+=======
+describe("FetchWeatherInfo Test", () => {});
+>>>>>>> upstream/main

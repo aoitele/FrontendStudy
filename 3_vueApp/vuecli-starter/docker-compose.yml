@@ -1,7 +1,7 @@
 version: "3"
 services:
   web:
-    container_name: vue_recipeListApp
+    container_name: vuecli_starter
     build:
       context: .
       dockerfile: frontend/Dockerfile

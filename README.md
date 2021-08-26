@@ -42,7 +42,7 @@
 
 #### 課題 4: react でbookリストを作ろう
 
--reactを学ぶ
+reactを学ぶ
 
    - create-react-appで環境構築
    - typescriptを学ぶ（型定義を学ぶ）

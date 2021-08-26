@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "practice-myrecipe",
+            "database": "test01",
+            "username": "test01",
+            "password": "test01"
+        }
+    ]
+}

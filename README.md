@@ -55,14 +55,14 @@ reactを学ぶ
 
 1.dockerを使って環境構築を行う
 
-  　- 使い方、立ち上げ方を学ぶ
-  　- create-next-appとpostgresの導入
-  　- コンテナの作成
+    - 使い方、立ち上げ方を学ぶ
+    - create-next-appとpostgresの導入
+    - コンテナの作成
   
 2.データベースについて学ぶ
 
-　　- SQL文の書き方
-　　- -テーブルの作成
+   - SQL文の書き方
+   - テーブルの作成
    
    
 3.next.jsの環境構築

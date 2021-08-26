@@ -44,9 +44,9 @@
 
 reactを学ぶ
 
-   - create-react-appで環境構築
-   - typescriptを学ぶ（型定義を学ぶ）
-   - hookを学ぶ（stateで状態管理）
+    - create-react-appで環境構築
+    - typescriptを学ぶ（型定義を学ぶ）
+    - hookを学ぶ（stateで状態管理）
 
 
 
@@ -61,8 +61,8 @@ reactを学ぶ
   
 2.データベースについて学ぶ
 
-   - SQL文の書き方
-   - テーブルの作成
+    - SQL文の書き方
+    - テーブルの作成
    
    
 3.next.jsの環境構築

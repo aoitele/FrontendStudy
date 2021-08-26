@@ -44,9 +44,9 @@
 
 -reactを学ぶ
 
-   -create-react-appで環境構築
-   -typescriptを学ぶ（型定義を学ぶ）
-   -hookを学ぶ（stateで状態管理）
+   - create-react-appで環境構築
+   - typescriptを学ぶ（型定義を学ぶ）
+   - hookを学ぶ（stateで状態管理）
 
 
 
@@ -55,20 +55,20 @@
 
 1.dockerを使って環境構築を行う
 
-  　-使い方、立ち上げ方を学ぶ
-  　-create-next-appとpostgresの導入
-  　-コンテナの作成
+  　- 使い方、立ち上げ方を学ぶ
+  　- create-next-appとpostgresの導入
+  　- コンテナの作成
   
 2.データベースについて学ぶ
 
-　　-SQL文の書き方
-   -テーブルの作成
+　　- SQL文の書き方
+　　- -テーブルの作成
    
    
 3.next.jsの環境構築
 
-   -next.jsについて学ぶ（非同期通信、SPA,SSR）
-   -next.jsからデータベースを参照できるようにする（データベースの登録、APIをfetchして取得したデータを画面に書き出す）
+   - next.jsについて学ぶ（非同期通信、SPA,SSR）
+   - next.jsからデータベースを参照できるようにする（データベースの登録、APIをfetchして取得したデータを画面に書き出す）
  
 
   

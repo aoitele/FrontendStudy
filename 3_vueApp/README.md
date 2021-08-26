@@ -39,8 +39,3 @@ App running at:
 
 アクセスすると welcome 画面が表示される
 
-## 完成イメージ
-
-#### お気に入りレシピ一覧
-
-![TaskImage 1](doc/pageimage_favorite-recipe.jpg)

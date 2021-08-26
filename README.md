@@ -20,27 +20,30 @@
 #### 課題 2:テストコードを通す（jest）
 
 1.テストを実行する
-- 四則演算
-- 配列操作
-- 非同期処理
-- Promise
+
+    - 四則演算
+    - 配列操作
+    - 非同期処理
+    - Promise
 
 2.テストコードを実際に書いてみる
 
-#### 課題 3: メモリストを Vue.js で作ろう
 
-- Vue.js 基礎
-- DB 取得/更新
-- 状態管理(state)
-- ライフサイクル
-- Component 単位での開発
-- Store / Context の概念
-- rooting を行う
+#### 課題 3: Vue.js でメモリストを作ろう
+
+    - Vue.js 基礎
+    - DB 取得/更新
+    - 状態管理(state)
+    - ライフサイクル
+    - Component 単位での開発
+    - Store / Context の概念
+    - rooting を行う
 
 
-#### 課題 4:react を学ぼう　
+#### 課題 4: react でbookリストを作ろう
 
--reactを学ぶ(bookリストの作成）
+-reactを学ぶ
+
    -create-react-appで環境構築
    -typescriptを学ぶ（型定義を学ぶ）
    -hookを学ぶ（stateで状態管理）
@@ -49,16 +52,21 @@
 
   
 #### 課題 5: next.jsでお気に入りレシピリストを作ろう
+
 1.dockerを使って環境構築を行う
+
   　-使い方、立ち上げ方を学ぶ
   　-create-next-appとpostgresの導入
   　-コンテナの作成
   
 2.データベースについて学ぶ
+
 　　-SQL文の書き方
    -テーブルの作成
    
+   
 3.next.jsの環境構築
+
    -next.jsについて学ぶ（非同期通信、SPA,SSR）
    -next.jsからデータベースを参照できるようにする（データベースの登録、APIをfetchして取得したデータを画面に書き出す）
  

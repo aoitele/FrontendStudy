@@ -1,0 +1,341 @@
+//基本フォントサイズ
+$baseFontSize: 1.4rem;
+// 基本フォントカラー
+$font-color: #59340a;
+// 基本リンクカラー
+$baseLinkColor: #583407;
+$baseLinkActiveColor: #583407;
+$baseLinkVisitedColor: #583407;
+// 基本背景カラ-
+$baseBackgroundColor: #b2ae92;
+// 茶色アイコン
+$icon-brawn: #8c6500;
+// 濃い茶色背景
+$bk-brawn: #59340a;
+$bk-light-brawn: #fbf5e9;
+//nadiaイエロー
+$yellow: #d79a00;
+$article-title-color: #5a320a;
+//ボタンの黄色
+$yellow02: #ffc300;
+//薄めイエロー
+$yellow02-bk: rgba(255, 195, 0, 0.3);
+//hover　オレンジ
+$yellow02-hover: #ff9d00;
+//ボタンの青色
+$blue: #3e61c1;
+//ボタンのみどり色
+$green: #69c62f;
+// ボタン等のグリーン
+$btn-green: #76a22d;
+// ボタン等のうすいグリーン
+$btn-green-light: #dbeac3;
+//削除などアラート系の赤色
+$red: #c92b2b;
+// mypage系ベースカラー
+$mypage-color: #ffc300;
+// ボーダーカラー
+$border-color: #d2c8be;
+
+$base-brown: rgba(89, 52, 10, 1);
+$base-brown-border: rgba(89, 52, 10, 0.2);
+$base-brown-opa1: rgba(89, 52, 10, 0.1);
+$base-brown-opa2: rgba(89, 52, 10, 0.2);
+$base-brown-opa3: rgba(89, 52, 10, 0.3);
+$base-brown-opa4: rgba(89, 52, 10, 0.4);
+$base-brown-opa5: rgba(89, 52, 10, 0.5);
+
+@mixin border-dashed-link() {
+  border-bottom: 1px dashed $base-brown;
+  padding-bottom: 3px;
+  transition: 0.2s;
+  &:hover {
+    color: $yellow02-hover;
+    border-bottom: 1px dashed $yellow02-hover;
+  }
+}
+
+// PCレイアウト
+@mixin large {
+  @media screen and (min-width: 960px) {
+    @content;
+  }
+}
+
+// 中間レイアウト以上
+@mixin more_than_medium {
+  @media screen and (min-width: 481px) {
+    @content;
+  }
+}
+
+// 中間レイアウト
+@mixin medium {
+  @media screen and (max-width: 959px) and (min-width: 481px) {
+    @content;
+  }
+}
+
+// 中間レイアウト以下
+@mixin less_than_medium {
+  @media screen and (max-width: 959px) {
+    @content;
+  }
+}
+
+// スマホレイアウト
+@mixin small {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+@font-face {
+  font-family: 'nadiaSmpLogoset';
+  src: url('../../../assets/fonts/nadia-smp-logoset.eot?gugfq1');
+  src: url('../../../assets/fonts/nadia-smp-logoset.eot?gugfq1#iefix') format('embedded-opentype'),
+    url('../../../assets/fonts/nadia-smp-logoset.ttf?gugfq1') format('truetype'),
+    url('../../../assets/fonts/nadia-smp-logoset.woff?gugfq1') format('woff'),
+    url('../../../assets/fonts/nadia-smp-logoset.svg?gugfq1#nadia-smp-logoset') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.commonIcon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'nadiaSmpLogoset' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.iconSent:before {
+  content: '\e904';
+}
+.iconClip + :before {
+  content: '\e90d';
+}
+.iconYummy + :before {
+  content: '\e90e';
+}
+.iconTimer:before {
+  content: '\e90c';
+}
+.iconCalender:before {
+  content: '\e909';
+}
+.iconClip:before {
+  content: '\e90a';
+}
+.iconYummy:before {
+  content: '\e90b';
+}
+.iconDel:before {
+  content: '\e908';
+}
+.iconSearch:before {
+  content: '\e905';
+}
+.iconSearch_txt:before {
+  content: '\e910';
+}
+.iconCamera:before {
+  content: '\e906';
+}
+.iconSent2:before {
+  content: '\e907';
+}
+.iconCategory:before {
+  content: '\e900';
+}
+.iconRanking:before {
+  content: '\e901';
+}
+.iconLogin:before {
+  content: '\e902';
+}
+.iconMenu01:before {
+  content: '\e903';
+}
+
+.iconDownload:before {
+  content: '\e960';
+}
+.iconCheckmark2:before {
+  content: '\ea11';
+}
+.iconQ:before {
+  content: '\e911';
+}
+
+.iconFlower:before {
+  font-family: 'nadiaSmpLogoset' !important;
+  display: inline-block;
+  content: '\e912';
+}
+.iconHistory:before {
+  content: '\e913';
+}
+.iconPen:before {
+  content: '\e914';
+}
+.iconAngleDown:before {
+  content: '\e915';
+}
+.iconAngleRight:before {
+  content: '\e90f';
+}
+.iconBlog:before {
+  content: '\e916';
+}
+.iconNadiaLogo:before {
+  content: '\e917';
+}
+.iconHeart:before {
+  content: '\e918';
+}
+.iconHeart-line:before {
+  content: '\e919';
+}
+.iconTag:before {
+  content: '\e91a';
+}
+.iconLoginSingle:before {
+  content: '\e91c';
+}
+.iconArtistRequest:before {
+  content: '\e91b';
+}
+.iconSpoonKnife:before {
+  content: '\e9a3';
+}
+.iconExit:before {
+  content: '\ea14';
+}
+.iconBubble:before {
+  content: '\e96b';
+}
+.iconMemo:before {
+  content: '\e91d';
+}
+.iconTwitter:before {
+  content: '\ea96';
+}
+.iconPlay2:before {
+  content: '\ea15';
+}
+.iconCross1:before {
+  content: '\ea10';
+}
+.iconLoop2:before {
+  content: '\ea2e';
+}
+.iconUpdown-arrow03:before {
+  content: '\e91f';
+}
+.iconError:before {
+  content: '\e920';
+}
+.iconTsukuMemo:before {
+  content: '\e921';
+}
+.iconStar:before {
+  content: '\e926';
+}
+.iconStar-line:before {
+  content: '\e927';
+}
+.iconPremium {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+.iconRanking02:before {
+  content: '\e923';
+}
+.iconSearch02:before {
+  content: '\e929';
+}
+.iconRecipePost:before {
+  content: '\e92a';
+}
+.iconHeart03:before {
+  content: '\e92b';
+}
+.iconSignup:before {
+  content: '\e92c';
+}
+.iconArtistRequest02:before {
+  content: '\e92e';
+}
+.iconLogin02:before {
+  content: '\e92d';
+}
+.iconSmp_menu:before {
+  content: '\e930';
+}
+.iconSmp_login:before {
+  content: '\e931';
+}
+.iconSmp_ranking:before {
+  content: '\e933';
+}
+.iconSmp_search:before {
+  content: '\e934';
+}
+
+@mixin iconError($fontsize: 60%, $width: 15px, $height: 15px) {
+  content: '!';
+  font-size: $fontsize;
+  background: red;
+  border-radius: 50%;
+  width: $width;
+  height: $height;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-error {
+  margin: 0 auto;
+  padding: 4em 0;
+  background: #fff;
+  text-align: center;
+  width: 100%;
+  border-radius: 10px;
+  @media screen and (max-width: 500px) {
+    padding: 60px 20px;
+    width: calc(100% - 40px);
+    br {
+      display: none;
+    }
+  }
+  &__heading {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 1em;
+    @media screen and (max-width: 500px) {
+      font-size: 20px;
+    }
+  }
+  &__button {
+    margin: 2em auto 0 auto;
+    padding: 20px 40px;
+    background: #ff9d00;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    max-width: 40%;
+    border-radius: 40px;
+    &:visited {
+      color: #fff;
+    }
+  }
+}

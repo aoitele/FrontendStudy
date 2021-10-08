@@ -3,14 +3,14 @@ import MainBox from './MainBox';
 import { useEffect, useState } from 'react';
 import RecipeCategory from './RecipeCategory';
 
-interface FilterProps {
-  cookingtime: number | null;
-  category: string | null | number;
+interface RecipeFilterProps {
+  time_filter: number | null;
+  category_filter: string | null | number;
 }
 
 interface Props {
   data: Data.ApiResponse;
-  filters: FilterProps;
+  recipe_filters: RecipeFilterProps;
   changeUser: (e: any) => void;
   changeTime: (e: number) => void;
   recipeDelete: (e: Data.favoriteRecipes) => void;
@@ -19,7 +19,7 @@ interface Props {
 
 const Content: React.FC<Props> = ({
   data,
-  filters,
+  recipe_filters,
   changeTime,
   changeUser,
   recipeDelete,
@@ -29,10 +29,10 @@ const Content: React.FC<Props> = ({
     const pathId = e.target.value;
     changeUser(pathId);
   };
-  const handleChangetime = (e: any) => {
+  const handleChangeTime = (e: any) => {
     console.log(e.target.value);
-    const cookingtime: number = e.target.value;
-    changeTime(cookingtime);
+    const time: number = e.target.value;
+    changeTime(time);
   };
   const handleChangeCategory = (e: any) => {
     console.log(e);
@@ -56,7 +56,7 @@ const Content: React.FC<Props> = ({
         <div className={style.search}>
           <form>
             <h5>調理時間で絞り込み</h5>
-            <select className={style.search_select} onChange={handleChangetime}>
+            <select className={style.search_select} onChange={handleChangeTime}>
               <option value='0'>指定なし</option>
               <option value='10'>10分以内</option>
               <option value='20'>20分以内</option>
@@ -68,7 +68,7 @@ const Content: React.FC<Props> = ({
           <h5>レシピ分類で絞り込み</h5>
           <RecipeCategory
             data={data}
-            filters={filters}
+            recipe_filters={recipe_filters}
             handleChangeCategory={handleChangeCategory}
           ></RecipeCategory>
         </div>

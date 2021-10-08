@@ -10,20 +10,6 @@ interface Props {
   errorCode: any;
 }
 
-interface Data {
-  id: number;
-  username: string;
-  recipeid: number;
-  insert_date: any;
-  recipename: string;
-  category: string;
-  comment: string;
-  cookingtime: number;
-  explain: string;
-  img: string;
-  chefid: number;
-}
-
 const Page: React.FC<Props> = ({ errorCode }) => {
   if (errorCode) {
     return <Error statusCode={errorCode} />;

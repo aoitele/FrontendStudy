@@ -12,7 +12,7 @@ declare namespace Data {
     category: string;
     chefid: number;
     comment: string;
-    flag: boolean;
+    display_flag: boolean;
     chefname: string;
   };
 

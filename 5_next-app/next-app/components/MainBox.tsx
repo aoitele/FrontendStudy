@@ -65,7 +65,7 @@ const MainBox: React.FC<Props> = ({ data, recipeDelete }) => {
   return (
     <div className={style.mainBox}>
       {items.map((item) => {
-        if (item.flag == true) {
+        if (item.display_flag == true) {
           return (
             <div className={style.recipeBox}>
               <div className={style.img}>

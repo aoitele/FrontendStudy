@@ -9,98 +9,96 @@ interface Props {
   data: Data.ApiResponse;
   errorCode: any;
 }
-interface FilterProps {
-  cookingtime: number | null;
-  category: string | null | number;
+interface RecipeFilterProps {
+  time_filter: number | null;
+  category_filter: string | null | number;
 }
 
 const MyPage: React.FC<Props> = ({ data, errorCode }) => {
-  const [items, setItems] = useState<Data.favoriteRecipes[]>(data);
-  const [filters, setFilters] = useState<FilterProps>({
-    cookingtime: null,
-    category: null,
+  const [items, setItems] = useState<Data.ApiResponse>(data);
+  const [recipe_filters, setRecipeFilters] = useState<RecipeFilterProps>({
+    time_filter: null,
+    category_filter: null,
   });
-  //console.log(items,"mypage");
+  console.log(recipe_filters,"mypage");
   const router = useRouter();
-  const changeUser = (e: any) => {
-    router.push(`/mypage/${e}`);
-    setFilters({ cookingtime: null, category: null });
+  const changeUser = (userid: any) => {
+    router.push(`/mypage/${userid}`);
+    setRecipeFilters({ time_filter: null, category_filter: null });
   };
 
-  const changeFlag = (item: Data.favoriteRecipes) => {
-    if (filters.cookingtime !== null && filters.category !== null) {
+  const changeDisplayFlag = (item: Data.favoriteRecipes) => {
+    
+   //調理時間とレシピ分類で絞り込み
+    if (recipe_filters.time_filter !== null && recipe_filters.category_filter !== null) {
       if (
-        item.cookingtime <= filters.cookingtime &&
-        item.category == filters.category
+        item.cookingtime <= recipe_filters.time_filter &&
+        item.category == recipe_filters.category_filter
       ) {
-        item.flag = true;
+        item.display_flag = true;
       } else {
-        item.flag = false;
+        item.display_flag = false;
       }
-    } else if (filters.cookingtime !== null && filters.category == null) {
-      if (item.cookingtime <= filters.cookingtime) {
-        item.flag = true;
+    } else if (recipe_filters.time_filter!== null && recipe_filters.category_filter  == null) {
+      if (item.cookingtime <= recipe_filters.time_filter) {
+        item.display_flag = true;
       } else {
-        item.flag = false;
+        item.display_flag = false;
       }
-    } else if (filters.cookingtime == null && filters.category !== null) {
-      if (item.category == filters.category) {
-        item.flag = true;
+    } else if (recipe_filters.time_filter == null && recipe_filters.category_filter !== null) {
+      if (item.category == recipe_filters.category_filter) {
+        item.display_flag = true;
       } else {
-        item.flag = false;
+        item.display_flag = false;
       }
     } else {
-      item.flag = true;
+      item.display_flag = true;
     }
 
     return item;
   };
-
+  const setDispayItems=()=>{
+    const display_items = items.map((item) => {
+      return changeDisplayFlag(item);
+    });
+    setItems(display_items);
+  }
   const changeTime = (time: number) => {
     if (time == 0) {
-      filters.cookingtime = null;
+      recipe_filters.time_filter = null;
     } else {
-      filters.cookingtime = time;
+      recipe_filters.time_filter  = time;
     }
-    setFilters(filters);
-    const t = items.map((item) => {
-      return changeFlag(item);
-    });
-    setItems(t);
+
+    setRecipeFilters(recipe_filters);
+    setDispayItems();
   };
 
   const changeCategory = (category: string | number) => {
     if (category == 0) {
-      filters.category = null;
+      recipe_filters.category_filter = null;
     } else {
-      filters.category = category;
+      recipe_filters.category_filter= category;
     }
-    setFilters(filters);
-    const c = items.map((item) => {
-      return changeFlag(item);
-    });
-    setItems(c);
+    setRecipeFilters(recipe_filters);
+    setDispayItems();
   };
-
+//dataを監視し、変更があれば、更新をかける
   useEffect(() => {
     setItems(data);
   }, [data]);
-  //  useEffect(()=>
-  //      {console.log(items,"変化があったときのみ実行cookigtime");
-
-  //      },[items]
-  //  )
-  const recipeDelete = (item: Data.favoriteRecipes) => {
+ 
+  const recipeDelete = (delete_item: Data.favoriteRecipes) => {
     if (confirm('このレシピをお気に入り一覧から削除する')) {
       const axios = AxiosClient();
       axios
-        .delete('delete', { item })
+        .delete('delete', { delete_item })
         .then((res) => {
           console.log(res.data, 'delete successfully');
-          const recipeid = item.recipeid;
+          const deleted_recipeid = delete_item.recipeid;
 
           const newItems = items.filter((item) => {
-            return item.recipeid !== recipeid;
+            return item.recipeid !== deleted_recipeid;
           });
           setItems(newItems);
         })
@@ -119,7 +117,7 @@ const MyPage: React.FC<Props> = ({ data, errorCode }) => {
         <main>
           <Content
             data={items}
-            filters={filters}
+            recipe_filters={recipe_filters}
             changeUser={changeUser}
             changeTime={changeTime}
             changeCategory={changeCategory}
@@ -136,10 +134,10 @@ export const getServerSideProps = async (ctx: any) => {
     const params = ctx.params.id;
     const axios = AxiosClient();
     const res = await axios.get('data', { params: { userid: params } });
-    // console.log(res.data.data, "serversideprops")
+     //console.log(res, "serversideprops")
 
     for (const element of res.data.data) {
-      element.flag = true;
+      element.display_flag = true;
     }
 
     return { props: { data: res.data.data } };

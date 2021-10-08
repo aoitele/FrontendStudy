@@ -1,10 +1,8 @@
-import {AppProps} from "next/app";
-import '../styles/scss/foundation/reset.scss'
-
-
+import { AppProps } from 'next/app';
+import '../styles/scss/foundation/reset.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+export default MyApp;

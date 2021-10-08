@@ -1,7 +1,8 @@
 @font-face {
   font-family: 'nadia-smp-logoset';
   src: url('fonts/nadia-smp-logoset.eot?gugfq1');
-  src: url('fonts/nadia-smp-logoset.eot?gugfq1#iefix') format('embedded-opentype'),
+  src: url('fonts/nadia-smp-logoset.eot?gugfq1#iefix')
+      format('embedded-opentype'),
     url('fonts/nadia-smp-logoset.ttf?gugfq1') format('truetype'),
     url('fonts/nadia-smp-logoset.woff?gugfq1') format('woff'),
     url('fonts/nadia-smp-logoset.svg?gugfq1#nadia-smp-logoset') format('svg');

@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 module.exports = {
   reactStrictMode: true,
   sassOptions: {
@@ -8,7 +8,7 @@ module.exports = {
     config.watchOptions = {
       poll: 500,
       aggregateTimeout: 300,
-    }
-    return config
-  }
-}
+    };
+    return config;
+  },
+};

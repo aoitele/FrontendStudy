@@ -93,10 +93,12 @@ $base-brown-opa5: rgba(89, 52, 10, 0.5);
 @font-face {
   font-family: 'nadiaSmpLogoset';
   src: url('../../../assets/fonts/nadia-smp-logoset.eot?gugfq1');
-  src: url('../../../assets/fonts/nadia-smp-logoset.eot?gugfq1#iefix') format('embedded-opentype'),
+  src: url('../../../assets/fonts/nadia-smp-logoset.eot?gugfq1#iefix')
+      format('embedded-opentype'),
     url('../../../assets/fonts/nadia-smp-logoset.ttf?gugfq1') format('truetype'),
     url('../../../assets/fonts/nadia-smp-logoset.woff?gugfq1') format('woff'),
-    url('../../../assets/fonts/nadia-smp-logoset.svg?gugfq1#nadia-smp-logoset') format('svg');
+    url('../../../assets/fonts/nadia-smp-logoset.svg?gugfq1#nadia-smp-logoset')
+      format('svg');
   font-weight: normal;
   font-style: normal;
 }

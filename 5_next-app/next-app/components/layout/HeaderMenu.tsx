@@ -1,4 +1,4 @@
-import styles from '../styles/scss/foundation/header.module.scss';
+import styles from '../../styles/scss/foundation/header.module.scss';
 
 const HeaderMenu = () => {
   return (

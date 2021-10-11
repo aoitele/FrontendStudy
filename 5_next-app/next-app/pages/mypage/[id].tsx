@@ -2,8 +2,8 @@ import { NextPage } from 'next';
 import { AxiosClient } from '../../modules/request';
 import React, { useEffect, useState } from 'react';
 import Error from 'next/error';
-import Layout from '../../components/Layout';
-import Content from '../../components/Content';
+import Layout from '../../components/layout/Layout';
+import Content from '../../components/mainContents/Content';
 import { useRouter } from 'next/router';
 interface Props {
   data: Data.ApiResponse;

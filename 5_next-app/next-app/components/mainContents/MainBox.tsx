@@ -1,7 +1,7 @@
-import style from '../styles/scss/main/main.module.scss';
+import style from '../../styles/scss/main/main.module.scss';
 import Modal from 'react-modal';
 import { useEffect, useState } from 'react';
-import Memo from './Memo';
+import Memo from '../Memo';
 
 Modal.setAppElement('#__next');
 

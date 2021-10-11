@@ -1,7 +1,7 @@
-import styles from '../styles/scss/foundation/header.module.scss';
-import searchStyles from '../styles/scss/foundation/search.module.scss';
+import styles from '../../styles/scss/foundation/header.module.scss';
+import searchStyles from '../../styles/scss/foundation/search.module.scss';
 import SearchTag from './HeaderTag';
-import variable from '../styles/scss/foundation/variables.module.scss';
+import variable from '../../styles/scss/foundation/variables.module.scss';
 
 const HeaderSearch = () => {
   return (

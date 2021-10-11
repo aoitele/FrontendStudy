@@ -1,4 +1,4 @@
-import style from '../styles/scss/main/main.module.scss';
+import style from '../../styles/scss/main/main.module.scss';
 import MainBox from './MainBox';
 import { useEffect, useState } from 'react';
 import RecipeCategory from './RecipeCategory';

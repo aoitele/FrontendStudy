@@ -1,4 +1,4 @@
-import style from '../styles/scss/main/main.module.scss';
+import style from '../../styles/scss/main/main.module.scss';
 interface RecipeFilterProps {
   time_filter: number | null;
   category_filter: string | null | number;

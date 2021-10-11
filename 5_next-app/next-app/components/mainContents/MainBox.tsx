@@ -54,7 +54,6 @@ const MainBox: React.FC<Props> = ({ data, recipeDelete }) => {
     let year = d.getUTCFullYear(); // Hours
     let month = d.getUTCMonth() + 1;
     let date = d.getUTCDate();
-    //console.log(d)
     return (
       <div>
         追加日 {year}年{month}月{date}日

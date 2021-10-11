@@ -107,7 +107,7 @@ const MyPage: React.FC<Props> = ({ data, errorCode }) => {
     if (confirm('このレシピをお気に入り一覧から削除する')) {
       const axios = AxiosClient();
       axios
-        .delete('delete', { params: delete_item })
+        .delete('delete', { params: { userid: delete_item.id, recipeid: delete_item.recipeid }})
         .then((res) => {
           console.log(res.data, 'delete successfully');
           const deleted_recipeid = delete_item.recipeid;

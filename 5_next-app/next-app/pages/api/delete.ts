@@ -2,10 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { sqlExecuter } from '../../modules/database';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const getData = req.body.item;
-  const userid = getData.userid;
-  const recipeid = getData.recipeid;
-  console.log(userid, recipeid);
+  const {userid, recipeid}= req.body.params;
   const ResetData = await sqlExecuter.any(
     'delete from favorite_recipes where recipeid=' +
       recipeid +

@@ -11,7 +11,7 @@ interface RecipeFilterProps {
 interface Props {
   data: Data.ApiResponse;
   recipe_filters: RecipeFilterProps;
-  changeUser: (e: any) => void;
+  changeUser: (e: string) => void;
   changeTime: (e: number) => void;
   recipeDelete: (e: Data.favoriteRecipes) => void;
   changeCategory: (e: string) => void;
@@ -25,28 +25,13 @@ const Content: React.FC<Props> = ({
   recipeDelete,
   changeCategory,
 }) => {
-  const handleChangeUser = (e: any) => {
-    const pathId = e.target.value;
-    changeUser(pathId);
-  };
-  const handleChangeTime = (e: any) => {
-    console.log(e.target.value);
-    const time: number = e.target.value;
-    changeTime(time);
-  };
-  const handleChangeCategory = (e: any) => {
-    console.log(e);
-    const category: string = e.target.value;
-    changeCategory(category);
-  };
-
   return (
     <div className={style.main}>
       <aside className={style.aside}>
         <div className={style.search}>
           <form>
-            <select onChange={handleChangeUser}>
-              <option>ユーザーを切り替える</option>
+            <select onChange={(e) => changeUser(e.target.value)}>
+              <option value='0'>ユーザーを切り替える</option>
               <option value='1'>ドラえもん</option>
               <option value='2'>のびたくん</option>
               <option value='3'>どらみちゃん</option>
@@ -56,7 +41,10 @@ const Content: React.FC<Props> = ({
         <div className={style.search}>
           <form>
             <h5>調理時間で絞り込み</h5>
-            <select className={style.search_select} onChange={handleChangeTime}>
+            <select
+              className={style.search_select}
+              onChange={(e) => changeTime(Number(e.target.value))}
+            >
               <option value='0'>指定なし</option>
               <option value='10'>10分以内</option>
               <option value='20'>20分以内</option>
@@ -69,7 +57,7 @@ const Content: React.FC<Props> = ({
           <RecipeCategory
             data={data}
             recipe_filters={recipe_filters}
-            handleChangeCategory={handleChangeCategory}
+            changeCategory={changeCategory}
           ></RecipeCategory>
         </div>
       </aside>

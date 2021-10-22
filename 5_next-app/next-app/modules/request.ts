@@ -1,5 +1,6 @@
 import axios, { AxiosResponse, AxiosRequestConfig, AxiosInstance } from 'axios';
 
+//baseurlの設定
 const AxiosClient = (options?: AxiosRequestConfig) => {
   const client: AxiosInstance = axios.create({
     baseURL: process.env.NEXT_PULIC_API_BASE_URL || 'http://localhost:3000/api',

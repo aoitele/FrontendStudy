@@ -1,5 +1,6 @@
 import pgPromise from 'pg-promise';
 
+//database(postgressへの接続情報)
 const pgp = pgPromise({});
 const config = {
   db: {
@@ -14,4 +15,5 @@ const config = {
   },
 };
 
+//接続情報を渡す
 export const sqlExecuter = pgp(config.db);

@@ -146,6 +146,7 @@ const MyPage: React.FC<Props> = ({ data, errorCode }) => {
 
 export const getServerSideProps = async (ctx: any) => {
   try {
+    //ctxはURLから取得できる情報
     const params = ctx.params.id;
     const axios = AxiosClient();
     const res = await axios.get('data', { params: { userid: params } });

@@ -1,0 +1,39 @@
+version: '3'
+services:
+  # react:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile_node
+  #   volumes:
+  #     - ./workplace:/usr/src/app
+  #   command: "yarn start"
+  #   ports:
+  #     - "3000:3000"
+  #   tty: true
+  next:
+    container_name: "recipe-smp-next"
+    build: 
+     context: ./app
+     dockerfile: Dockerfile
+    volumes:
+      - ./app:/opt/next
+      - ./app/node_modules:/opt/next/node_modules
+    ports:
+      - "3000:3000"
+  appdb:
+    image: postgres:10
+    container_name: "recipe-smp-db"
+    ports:
+      - "5432:5432"
+    volumes:
+      # - database:/var/lib/postgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d
+    env_file: .env
+    command: postgres -c log_destination=stderr -c log_statement=all -c log_connections=on -c log_disconnections=on
+    logging:
+      options:
+        max-size: "10k"
+        max-file: "5"
+volumes:
+  database:
+    driver: local

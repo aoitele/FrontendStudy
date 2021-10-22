@@ -1,0 +1,15 @@
+.box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.title {
+  font-size: 1.5rem;
+}
+
+.content {
+  width: 400px;
+  flex-grow: 1;
+  background-color: rgb(235, 234, 214);
+}

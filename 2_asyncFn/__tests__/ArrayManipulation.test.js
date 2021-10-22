@@ -14,7 +14,7 @@ let expected;
 describe("ArrayManipulation", () => {
   test("get PersonsName who's age under30", () => {
     const ArrayManipulationInstance = new ArrayManipulation();
-    keys = ["name"];
+    keys = ["ß];
     conditions = { key: "age", threshold_value: 30 };
     expected = ["Steve Jobs", "Bill Gates"];
     const result = ArrayManipulationInstance.getUserNamebyAgeCondition(

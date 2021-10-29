@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className={style.wrapper}>
       <div className={style.inner}>
-        <ul className={style.list}>
+        <ul>
           <li>
             <a href='/terms/faq'>FAQ</a>
           </li>
@@ -33,7 +33,7 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <p className={style.footer__copyright}>
+      <p className={style.copyright}>
         Copyright © 2012 Nadia All Rights Reserved.
       </p>
     </footer>

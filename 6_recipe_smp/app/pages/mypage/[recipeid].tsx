@@ -1,6 +1,7 @@
 import React from 'react';
 import Error from 'next/error';
 import Layout from '../../components/layout/Layout'
+import Conteiner from '../../components/main/conteiner';
 
 const MyPage :React.FC=(props)=>{
     
@@ -10,8 +11,8 @@ const MyPage :React.FC=(props)=>{
     
     return(
       <Layout>
-        {/* <div>recipe:{data}</div> */}
-      </Layout>
+      <Conteiner></Conteiner>
+    </Layout>   
     )
 }
 

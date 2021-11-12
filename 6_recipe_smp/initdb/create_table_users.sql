@@ -22,4 +22,3 @@ values(
 '22世紀の最新レシピ',
 'https://bandai-hobby.net/images/153_2137_s_jffkbtrjngzm31u1nwpvhz7lu12y.jpg');
 
-

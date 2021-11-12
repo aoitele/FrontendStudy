@@ -42,4 +42,3 @@ export const getServerSideProps = async (ctx: any) => {
 };
 
 export default MyPage;
-

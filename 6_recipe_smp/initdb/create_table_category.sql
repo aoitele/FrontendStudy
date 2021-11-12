@@ -13,4 +13,3 @@ insert into category values
  (5,'飲み物'),
  (6,'デザート'),
  (7,'調味料');
-

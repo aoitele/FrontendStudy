@@ -1,6 +1,6 @@
 create table favorites
-(userid serial,
-recipeid serial);
+(user_id serial,
+recipe_id serial);
 
 insert into favorites
 values

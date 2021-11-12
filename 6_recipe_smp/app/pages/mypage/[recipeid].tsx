@@ -3,18 +3,15 @@ import Error from 'next/error';
 import Layout from '../../components/layout/Layout'
 import Conteiner from '../../components/main/conteiner';
 import { AxiosClient } from '../../modules/request';
-import {basicdata, ingredientdata, processdata} from "../../＠types/basicdata"
+import  { RecipeApiResponse } from "../../＠types/basicdata"
 
 interface Props {
-  basicData: basicdata;
-  ingredientData:ingredientdata[];
-  processData: processdata[];
-  errorCode: any;
+  recipeDatas: RecipeApiResponse;
+  errorCode:number;
 
 }
-const MyPage :React.FC<Props>=({basicData, ingredientData, processData, errorCode})=>{
-    console.log(processData);
-
+const MyPage :React.FC<Props>=({recipeDatas, errorCode})=>{
+  console.log(recipeDatas.recipeData);
 
 
     if (errorCode) {
@@ -23,19 +20,18 @@ const MyPage :React.FC<Props>=({basicData, ingredientData, processData, errorCod
     
     return(
       <Layout>
-      <Conteiner basicData={basicData[0]} ingredientData={ingredientData} processData={processData}></Conteiner>
+      <Conteiner recipeDatas={recipeDatas} ></Conteiner>
     </Layout>   
     )
 }
 
 export const getServerSideProps = async (ctx: any) => {
   try {
-    const params = ctx.params.recipeid;
+    const id = ctx.params.recipeid;
     const axios = AxiosClient();
-    const res = await axios.get('data', { params: { recipeid: params } });
-    console.log(res.data, 'serversidepropssssssssssssssssss');
-
-    return { props: { basicData: res.data.basicData, ingredientData: res.data.ingredientData, processData: res.data.processData } };
+    const res = await axios.get(`recipe/${id}`);
+   console.log(res.data.recipeDatas,"serversideprops")
+    return { props: { recipeDatas: res.data.recipeDatas} };
 
     //このpropsは上のPageコンポーネントに渡される
   } catch (err) {
@@ -46,3 +42,4 @@ export const getServerSideProps = async (ctx: any) => {
 };
 
 export default MyPage;
+

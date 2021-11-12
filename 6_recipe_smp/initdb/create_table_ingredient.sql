@@ -1,5 +1,5 @@
 create table ingredient
-(recipeid serial,
+(recipe_id serial,
 ingredient_name VARCHAR,
 ingredient_amount VARCHAR,
 ingredient_sort VARCHAR);

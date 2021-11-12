@@ -1,11 +1,13 @@
 import { useRouter } from 'next/router';
 import style from  './../home/homecontainer.module.scss';
 
-const HomeContainer =()=>{
 
+const HomeContainer =(recipeData)=>{
+   console.log(recipeData)  
     const Router = useRouter();
     const changeRecipe = (e) => {
-       Router.push(`/mypage/${e.id}`);    
+       Router.push(`/mypage/${e.id}`); 
+        
     };
     return(
        <div className={style.wrapper}>

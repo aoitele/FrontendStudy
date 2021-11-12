@@ -1,12 +1,12 @@
-import style from './recipedata.module.scss'
-import {basicdata} from '../../../../＠types/basicdata'
+import style from './recipedatashortver.module.scss'
+import {RecipeData} from '../../../../＠types/basicdata'
 import { format } from 'date-fns';
 
 type Props={
-    basicData: basicdata;
+    recipeData: RecipeData;
 }
-const RecipeData:React.FC<Props>=({basicData})=>{
-    const date= format(new Date(basicData.insert_date), 'yyyy-MM-dd');
+const RecipeDataShortVer :React.FC<Props>=({recipeData})=>{
+    const date= format(new Date(recipeData.insert_date), 'yyyy-MM-dd');
 return(
     <ul className={style.wrapper}>
         <li className={style.date}>
@@ -15,19 +15,19 @@ return(
         </li>
         <li className={style.category}>
             <span>分類</span>
-            <p>{basicData.categoryname}</p>
+            <p>{recipeData.category_name}</p>
         </li>
         <li className={style.time}>
             <i className={'commonIcon iconTimer'}></　　i>
-            <p>調理時間：{basicData.cookingtime}分</p>
+            <p>調理時間：{recipeData.cooking_time}分</p>
         </li>
         <li className={style.id}>
             <span>ID</span>
-            <p>{basicData.recipeid}</p>
+            <p>{recipeData.id}</p>
 
         </li>
     </ul>
 )
 }
 
-export default RecipeData
+export default RecipeDataShortVer

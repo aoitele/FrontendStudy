@@ -4,17 +4,21 @@ import RecipeDetail from './recipedetail/RecipeDetail'
 import Ingredients from './ingredients/Ingredients'
 import Process from './process/Process'
 import React, {useState } from 'react';
-import {basicdata, ingredientdata, processdata} from "../../＠types/basicdata";
+import {RecipeApiResponse} from "../../＠types/basicdata";
 
 interface Props {
-  basicData: basicdata;
-  ingredientData:ingredientdata[];
-  processData: processdata[];
+  recipeDatas: RecipeApiResponse;
+
 }
 
-    const Conteiner:React.FC<Props>=({basicData,ingredientData, processData}) => {
-    const favoriteCount=Number(basicData.favorite_count);
-    console.log(favoriteCount)
+    const Conteiner:React.FC<Props>=({recipeDatas}) => {
+        
+        const recipeData=recipeDatas.recipeData;
+        const ingredientData=recipeDatas.ingredientData;
+        const processData=recipeDatas.processData;
+
+        
+    const favoriteCount=Number(recipeData.favorite_count);
 
     // const[count, setCount]=useState({yummy: 0,favorite:favoriteCount})
     const[count, setCount]=useState(favoriteCount);
@@ -41,16 +45,16 @@ interface Props {
         <div className= {style.wrapper}>
             <div className={style.title} >
                     <div className={style.recipename}>
-                    <p>{basicData.recipename}</p>
+                    <p>{recipeData.recipe_name}</p>
                     </div>
                     <div className={style.time}>
                         <i className={'commonIcon iconTimer'}></i>
-                        <p>{basicData.cookingtime}分</p>
+                        <p>{recipeData.cooking_time}分</p>
                     </div>
 
                 </div>
-            <img src={`${basicData.img}`}/>
-            <RecipeDetail basicData={basicData} />
+            <img src={`${recipeData.img}`}/>
+            <RecipeDetail recipeData={recipeData} />
             <Ingredients ingredientData={ingredientData}/>
             <Process processData={processData}/>
             <div className={style.buttons}>

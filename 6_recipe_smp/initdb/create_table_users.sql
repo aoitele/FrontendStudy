@@ -1,11 +1,11 @@
 create table users
-(userid serial,
-username varchar,
+(id serial,
+user_name varchar,
 user_introduction varchar,
 icon varchar);
 
 insert into users
-(userid,username, user_introduction, icon)
+(id,user_name, user_introduction, icon)
 values(
 1,
 'どらえもん', 

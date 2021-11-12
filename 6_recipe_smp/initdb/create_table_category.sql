@@ -1,7 +1,7 @@
 CREATE TABLE category
 (
-    categoryid serial,
-    categoryname VARCHAR
+    category_id serial,
+    category_name VARCHAR
 );
 
 

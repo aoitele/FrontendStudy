@@ -1,11 +1,12 @@
 import style from "./process.module.scss"
-import {processdata} from '../../../＠types/basicdata'
+import {ProcessData} from '../../../＠types/basicdata'
 
 type Props ={
-processData: processdata[];
+processData: ProcessData;
 }
 
 const Process:React.FC<Props> =({processData})=>{
+    console.log(processData);
     const pointRemovedData= processData.slice(1);  
    
     return(

@@ -1,5 +1,5 @@
 create table process
-(recipeid serial,
+(recipe_id serial,
 process_number serial,
 process_explain VARCHAR);
 

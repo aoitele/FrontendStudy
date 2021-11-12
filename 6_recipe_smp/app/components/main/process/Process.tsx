@@ -22,7 +22,7 @@ const Process:React.FC<Props> =({processData})=>{
          {
          pointRemovedData.map((data)=>{
              return(
-                <dt>
+                <dt key={data.recipe_id}>
                 <dd className={style.order}>{data.process_number}</dd>
                 <dd>{data.process_explain}</dd>
                </dt>

@@ -12,12 +12,8 @@ interface Props {
 }
 
     const Conteiner:React.FC<Props>=({recipeDatas}) => {
-        
-        const recipeData=recipeDatas.recipeData;
-        const ingredientData=recipeDatas.ingredientData;
-        const processData=recipeDatas.processData;
-
-        
+    
+    const [recipeData, ingredientData, processData] = [recipeDatas.recipeData, recipeDatas.ingredientData, recipeDatas.processData];
     const favoriteCount=Number(recipeData.favorite_count);
 
     // const[count, setCount]=useState({yummy: 0,favorite:favoriteCount})

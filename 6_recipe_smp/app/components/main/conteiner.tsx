@@ -1,23 +1,65 @@
 import style from './conteiner.module.scss'
 import Image from 'next/image'
 import RecipeDetail from './recipedetail/RecipeDetail'
+import Ingredients from './ingredients/Ingredients'
+import Process from './process/Process'
+import React, {useState } from 'react';
+import {basicdata, ingredientdata, processdata} from "../../＠types/basicdata";
 
-const Conteiner=() => {
+interface Props {
+  basicData: basicdata;
+  ingredientData:ingredientdata[];
+  processData: processdata[];
+}
+
+    const Conteiner:React.FC<Props>=({basicData,ingredientData, processData}) => {
+    const favoriteCount=Number(basicData.favorite_count);
+    console.log(favoriteCount)
+
+    // const[count, setCount]=useState({yummy: 0,favorite:favoriteCount})
+    const[count, setCount]=useState(favoriteCount);
+    const[favoriteFlag, setFavoriteFlag]=useState(true);
+   
+    const hanfleClickCount=(e)=>{
+        setFavoriteFlag(!favoriteFlag); 
+        e.target.classList.toggle("iconHeart"); 
+        e.target.classList.toggle("iconHeart-line"); 
+        if(favoriteFlag){
+        setCount(count+1);
+        }
+        else{
+       
+        setCount(favoriteCount);
+        } 
+        
+    }
+      
+    
+
 
     return(
         <div className= {style.wrapper}>
             <div className={style.title} >
                     <div className={style.recipename}>
-                    <p>recipe-title</p>
+                    <p>{basicData.recipename}</p>
                     </div>
                     <div className={style.time}>
                         <i className={'commonIcon iconTimer'}></i>
-                        <p>〇〇分</p>
+                        <p>{basicData.cookingtime}分</p>
                     </div>
 
                 </div>
-            <img src='https://asset.oceans-nadia.com/upload/save_image/ff/ffabb34fbf9725ea2bc56af51cd8c78f.jpg?impolicy=insidewm&w=410&h=614'/>
-            <RecipeDetail />
+            <img src={`${basicData.img}`}/>
+            <RecipeDetail basicData={basicData} />
+            <Ingredients ingredientData={ingredientData}/>
+            <Process processData={processData}/>
+            <div className={style.buttons}>
+               
+                <a  onClick={(e)=>{hanfleClickCount(e)}}>
+                    <span>お気に入りに入れる</span>
+                    <span className={'commonIcon iconHeart-line'} >{count}</span>
+                    </a>
+            </div>
         </div>
     )
 }

@@ -138,4 +138,3 @@ values(
 2
 );
 
-select * from recipes;

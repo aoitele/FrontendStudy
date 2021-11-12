@@ -9,22 +9,22 @@ const HeaderNav = () => {
      <ul>
      <li>
        <a href="https://oceans-nadia.com/search">
-         <i className={'commonIcon icon-ranking'}></i>
+         <i className={'commonIcon iconSmp_search'}></i>
        </a>
      </li>
      <li>
        <a href="https://oceans-nadia.com/ranking">
-         <i className={'commonIcon icon-ranking'}></i>
+         <i className={'commonIcon iconSmp_ranking'}></i>
        </a>
        </li>
      <li>
        <a href="#">
-         <i className={'commonIcon icon-login'}></i>
+         <i className={'commonIcon iconSmp_login'}></i>
        </a>
      </li>
      <li>
        <a href="#">
-         <i className={'commonIcon icon-menu'}></i>
+         <i className={'commonIcon iconSmp_menu'}></i>
        </a>
      </li>
     

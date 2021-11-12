@@ -1,23 +1,29 @@
 import style from './recipedata.module.scss'
+import {basicdata} from '../../../../＠types/basicdata'
+import { format } from 'date-fns';
 
-const RecipeData=()=>{
+type Props={
+    basicData: basicdata;
+}
+const RecipeData:React.FC<Props>=({basicData})=>{
+    const date= format(new Date(basicData.insert_date), 'yyyy-MM-dd');
 return(
     <ul className={style.wrapper}>
         <li className={style.date}>
             <i className={'commonIcon iconCalender'}></i>
-            <p>2021.10.25</p>
+            <p>{date}</p>
         </li>
         <li className={style.category}>
             <span>分類</span>
-            <p>おやつ</p>
+            <p>{basicData.categoryname}</p>
         </li>
         <li className={style.time}>
             <i className={'commonIcon iconTimer'}></　　i>
-            <p>調理時間：20分</p>
+            <p>調理時間：{basicData.cookingtime}分</p>
         </li>
         <li className={style.id}>
             <span>ID</span>
-            <p>424512</p>
+            <p>{basicData.recipeid}</p>
 
         </li>
     </ul>

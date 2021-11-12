@@ -14,4 +14,3 @@ insert into category values
  (6,'デザート'),
  (7,'調味料');
 
- SELECT * from category;

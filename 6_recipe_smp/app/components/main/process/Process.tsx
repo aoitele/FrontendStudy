@@ -6,7 +6,6 @@ processData: ProcessData;
 }
 
 const Process:React.FC<Props> =({processData})=>{
-    console.log(processData);
     const pointRemovedData= processData.slice(1);  
    
     return(

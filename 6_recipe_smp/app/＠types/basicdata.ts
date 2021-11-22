@@ -18,7 +18,7 @@ export type RecipeData = {
     user_introduction: string;
     icon: string;
     category_name: string;
-    favorite_count: string;
+    favorite_count: string | null;
  };
 
  export type IngredientData={
@@ -35,3 +35,10 @@ export type RecipeData = {
  }[];
 
  
+
+ export type LoginedUserData={
+   id: number,
+   user_name: string,
+   icon: string,
+   p_token: string
+   }

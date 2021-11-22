@@ -1,9 +1,12 @@
-import React from 'react';
+import React  from 'react';
 import Error from 'next/error';
 import Layout from '../../components/layout/Layout'
 import Conteiner from '../../components/main/conteiner';
 import { AxiosClient } from '../../modules/request';
 import  { RecipeApiResponse } from "../../＠types/basicdata"
+import LoginModal from '../../components/modal/LoginModal'
+
+
 
 interface Props {
   recipeDatas: RecipeApiResponse;
@@ -11,17 +14,20 @@ interface Props {
 
 }
 const MyPage :React.FC<Props>=({recipeDatas, errorCode})=>{
-  console.log(recipeDatas.recipeData);
-
 
     if (errorCode) {
         return <Error statusCode={errorCode} />;
       } 
     
     return(
-      <Layout>
-      <Conteiner recipeDatas={recipeDatas} ></Conteiner>
-    </Layout>   
+     <div> 
+        <Layout>
+        <Conteiner recipeDatas={recipeDatas} ></Conteiner>
+        </Layout> 
+   </div>
+        
+      
+      
     )
 }
 
@@ -30,7 +36,7 @@ export const getServerSideProps = async (ctx: any) => {
     const id = ctx.params.recipeid;
     const axios = AxiosClient();
     const res = await axios.get(`recipe/${id}`);
-   console.log(res.data.recipeDatas,"serversideprops")
+  //  console.log(res.data.recipeDatas,"serversideprops")
     return { props: { recipeDatas: res.data.recipeDatas} };
 
     //このpropsは上のPageコンポーネントに渡される

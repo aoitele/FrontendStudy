@@ -8,6 +8,7 @@ type Props={
 }
 
 const Home: React.FC<Props> = ({recipeData}) => {
+  console.log(recipeData, "recipeData")
   return (
     <div>
       <Layout>
@@ -21,9 +22,8 @@ const Home: React.FC<Props> = ({recipeData}) => {
 
 export const getServerSideProps = async (ctx: any) => {
   try {
-    const params = ctx.params.recipeid;
     const axios = AxiosClient();
-    const res = await axios.get('data', { params: { recipeid: params } });
+    const res = await axios.get('recipes');
 
     return { props: { recipeData: res.data.recipeData　} };
 

@@ -16,7 +16,6 @@ interface Props {
     const [recipeData, ingredientData, processData] = [recipeDatas.recipeData, recipeDatas.ingredientData, recipeDatas.processData];
     const favoriteCount=Number(recipeData.favorite_count);
 
-    // const[count, setCount]=useState({yummy: 0,favorite:favoriteCount})
     const[count, setCount]=useState(favoriteCount);
     const[favoriteFlag, setFavoriteFlag]=useState(true);
    

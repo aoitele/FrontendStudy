@@ -20,6 +20,7 @@ services:
       - ./app/node_modules:/opt/next/node_modules
     ports:
       - "3000:3000"
+      # - "9229:9229"
     environment:
       - CHOKIDAR_USEPOLLING=true
 

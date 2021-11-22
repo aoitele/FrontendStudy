@@ -13,7 +13,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                       ingredientData: ingredientData,
                       processData: processData}
 
-  console.log(recipeDatas, "recipeDatas");
+  // console.log(recipeDatas, "recipeDatas");
 
   res.status(200).json({
     recipeDatas

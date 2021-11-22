@@ -3,6 +3,8 @@ import style from './header.module.scss';
 import HeaderNav from './headernav/HeaderNav';
 
 const Header = () => {
+
+  
   return (
     <div className={style.wrapper}>
        <div className={style.inner}>
@@ -16,7 +18,7 @@ const Header = () => {
             ></img>
           </a>
         </div> 
-        <HeaderNav></HeaderNav>  
+        <HeaderNav ></HeaderNav>  
         </div>   
     </div>
   );

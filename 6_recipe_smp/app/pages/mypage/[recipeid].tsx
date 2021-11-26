@@ -32,13 +32,18 @@ const MyPage :React.FC<Props>=({recipeDatas, errorCode})=>{
 }
 
 export const getServerSideProps = async (ctx: any) => {
+  console.log(ctx,"ctxxxxxxxxxxxxxxxx")
   try {
     const id = ctx.params.recipeid;
     const axios = AxiosClient();
     const res = await axios.get(`recipe/${id}`);
-  //  console.log(res.data.recipeDatas,"serversideprops")
+    // console.log(res.data.recipeDatas,"serversideprops")
+    if(res.data.recipeDatas.length==0){
+      return { props: { errorCode: 500 } };
+    }
     return { props: { recipeDatas: res.data.recipeDatas} };
-
+    
+   
     //このpropsは上のPageコンポーネントに渡される
   } catch (err) {
     console.log(err)

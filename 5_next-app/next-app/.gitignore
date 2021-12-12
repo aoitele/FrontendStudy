@@ -33,3 +33,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# next.js
+/.next/
+/out/
+/assets
+/styles/scss/foundation/

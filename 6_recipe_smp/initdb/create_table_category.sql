@@ -1,7 +1,7 @@
 CREATE TABLE category
 (
-    categoryid serial,
-    categoryname VARCHAR
+    category_id serial,
+    category_name VARCHAR
 );
 
 
@@ -13,5 +13,3 @@ insert into category values
  (5,'飲み物'),
  (6,'デザート'),
  (7,'調味料');
-
- SELECT * from category;

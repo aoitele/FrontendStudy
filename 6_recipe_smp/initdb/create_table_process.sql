@@ -1,5 +1,5 @@
 create table process
-(recipeid serial,
+(recipe_id serial,
 process_number serial,
 process_explain VARCHAR);
 
@@ -21,6 +21,3 @@ values
 (10, 2, 'マカロニが柔らかくなったら、にんにく、スライスチーズを加え混ぜながら煮てチーズを溶かす。'),
 (10, 3, '黒胡椒をふって混ぜたら出来上がり。');
 
-select * from process;
-
--- drop table process;

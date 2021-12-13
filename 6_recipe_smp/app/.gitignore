@@ -11,6 +11,8 @@
 # next.js
 /.next/
 /out/
+/assets
+/styles/scss/foundation/
 
 # production
 /build

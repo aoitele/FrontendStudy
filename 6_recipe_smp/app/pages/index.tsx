@@ -1,28 +1,38 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Error from 'next/error';
-import { useRouter } from 'next/router';
+import Layout from '../components/layout/Layout';
+import HomeContainer from '../components/main/home/HomeContainer';
+import { AxiosClient } from '../modules/request';
+import { RecipeData } from '../＠types/basicdata';
 
+type Props={
+  recipeData: RecipeData
+}
 
-export default function Home()  {
-
-  const router = useRouter();
-  const viewRecipeDetail=(num:number)=>{
-    console.log(num, "num")
-   router.push(`/mypage/${num}`);
-  }
-
-  
-  
+const Home: React.FC<Props> = ({recipeData}) => {
+  console.log(recipeData, "recipeData")
   return (
     <div>
-      <h1>hello world!!</h1>
-      {/* <ul onClick={(e)=>{viewRecipeDetail(Number(e.target.value))}}> */}
-      <li value="1" >レシピ１</li>
-      <li value="2" >レシピ２</li>
-      <li value="3" >レシピ３</li>
+      <Layout>
+      <HomeContainer recipeData={recipeData}/>
+      </Layout>
+      
     
-      {/* </ul> */}
      </div>
   )
-}
+};
+
+export const getServerSideProps = async (ctx: any) => {
+  try {
+    const axios = AxiosClient();
+    const res = await axios.get('recipes');
+
+    return { props: { recipeData: res.data.recipeData　} };
+
+    //このpropsは上のPageコンポーネントに渡される
+  } catch (err) {
+    console.log(err)
+    const errorCode = typeof err.response === "undefined"?  500: err.response.status;
+    return { props: { errorCode } };
+  } 
+};
+
+export default Home;

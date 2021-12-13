@@ -1,12 +1,12 @@
 create table recipes
-(recipeid serial ,
-recipename varchar,
-cookingtime int,
+(id serial ,
+recipe_name varchar,
+cooking_time int,
 explain varchar,
 insert_date date,
 img varchar,
 category serial,
-userid serial
+user_id serial
 );
 
 insert into recipes
@@ -138,4 +138,4 @@ values(
 2
 );
 
-select * from recipes;
+

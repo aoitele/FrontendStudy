@@ -1,18 +1,25 @@
-import styles from './header.module.scss';
+
+import style from './header.module.scss';
+import HeaderNav from './headernav/HeaderNav';
 
 const Header = () => {
+
+  
   return (
-    <div className={styles.header}>
-        <div className={styles.header__logo}>
+    <div className={style.wrapper}>
+       <div className={style.inner}>
+        <div className={style.logo}>
+
           　
           <a href='/'>
             <img
-              src='https://asset.oceans-nadia.com/2018/pc/images/nadia-logo.jpg'
-              width='166'
+              src='https://asset.oceans-nadia.com/2018/pc/images/nadia-logo.jpg'              
               alt='レシピサイト Nadia | ナディア - プロの料理家のおいしいレシピ'
             ></img>
           </a>
-        </div>      
+        </div> 
+        <HeaderNav ></HeaderNav>  
+        </div>   
     </div>
   );
 };

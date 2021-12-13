@@ -1,0 +1,15 @@
+ {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "attach",
+        "name": "Next: Node",
+        "skipFiles": ["<node_internals>/**"],
+        "cwd": "${workspaceFolder}/6_recipe_smp/app",
+        "port": 9229,
+      }
+    ]
+  }
+  
+  

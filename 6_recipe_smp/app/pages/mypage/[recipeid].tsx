@@ -1,33 +1,55 @@
-import React from 'react';
+import React  from 'react';
 import Error from 'next/error';
 import Layout from '../../components/layout/Layout'
+import Conteiner from '../../components/main/conteiner';
+import { AxiosClient } from '../../modules/request';
+import  { RecipeApiResponse } from "../../＠types/basicdata"
+import LoginModal from '../../components/modal/LoginModal'
 
-const MyPage :React.FC=(props)=>{
-    
-    // if (props.errorCode) {
-    //     return <Error statusCode={errorCode} />;
-    //   } 
+
+
+interface Props {
+  recipeDatas: RecipeApiResponse;
+  errorCode:number;
+
+}
+const MyPage :React.FC<Props>=({recipeDatas, errorCode})=>{
+
+    if (errorCode) {
+        return <Error statusCode={errorCode} />;
+      } 
     
     return(
-      <Layout>
-        {/* <div>recipe:{data}</div> */}
-      </Layout>
+     <div> 
+        <Layout>
+        <Conteiner recipeDatas={recipeDatas} ></Conteiner>
+        </Layout> 
+   </div>
+        
+      
+      
     )
 }
 
-// export const getServerSideProps = async(ctx: any)=>{
-//     try{
-//         console.log(ctx)
-//         const params = ctx.params.recipeid;
-//         const axios = AxiosClient();
-//         const res = await axios.get('data', { params: { recipeid: params } });
-//         console.log(res, 'serversideprops');
-//         return { props: { data: res.data.data } };
-
-//     }catch(err){
-//         const errorCode= err.response.status;
-//         return{props: {errorCode}};
-//     }
-// }
+export const getServerSideProps = async (ctx: any) => {
+  console.log(ctx,"ctxxxxxxxxxxxxxxxx")
+  try {
+    const id = ctx.params.recipeid;
+    const axios = AxiosClient();
+    const res = await axios.get(`recipe/${id}`);
+    // console.log(res.data.recipeDatas,"serversideprops")
+    if(res.data.recipeDatas.length==0){
+      return { props: { errorCode: 500 } };
+    }
+    return { props: { recipeDatas: res.data.recipeDatas} };
+    
+   
+    //このpropsは上のPageコンポーネントに渡される
+  } catch (err) {
+    console.log(err)
+    const errorCode = typeof err.response === "undefined"?  500: err.response.status;
+    return { props: { errorCode } };
+  } 
+};
 
 export default MyPage;

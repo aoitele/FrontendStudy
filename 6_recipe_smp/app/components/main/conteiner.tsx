@@ -38,7 +38,7 @@ interface Props {
 
     return(
         <div className= {style.wrapper}>
-            <div className={style.title} >
+            <h1 className={style.title} >
                     <div className={style.recipename}>
                     <p>{recipeData.recipe_name}</p>
                     </div>
@@ -47,7 +47,7 @@ interface Props {
                         <p>{recipeData.cooking_time}分</p>
                     </div>
 
-                </div>
+                </h1>
             <img src={`${recipeData.img}`}/>
             <RecipeDetail recipeData={recipeData} />
             <Ingredients ingredientData={ingredientData}/>

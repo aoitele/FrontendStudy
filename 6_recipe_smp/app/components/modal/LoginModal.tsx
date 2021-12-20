@@ -1,23 +1,24 @@
 import style from '../modal/loginmodal.module.scss'
 import { AxiosClient } from '../../modules/request';
 import {useState} from "react"
-import { useRouter } from 'next/router';
-import {LoginedUserData} from '../../＠types/basicdata'
-
-
+import {AuthState} from "../userprovider/AuthUser";
+import {  setCookie } from 'nookies';
 
 type Props={
     showLoginModal: boolean;
     showLoginModalClick: ()=>void;
-    setLoginedUserData: React.Dispatch<React.SetStateAction<LoginedUserData>>;
+    setUserInfo: React.Dispatch<React.SetStateAction<AuthState>>
     err: string;
     setErr: React.Dispatch<React.SetStateAction<string>>;
+    
 }
 
 
-const LoginModal: React.FC<Props>= ({showLoginModal ,showLoginModalClick, setLoginedUserData, err ,setErr}) =>{
+const LoginModal: React.FC<Props>= ({showLoginModal ,setUserInfo, showLoginModalClick, err ,setErr}) =>{
     const [info, setInfo]=useState({email: "", password:""})
  
+  
+
   const ChangeInfo=(e)=>{
       const value= e.target.value
       const name= e.target.name
@@ -31,15 +32,22 @@ const LoginModal: React.FC<Props>= ({showLoginModal ,showLoginModalClick, setLog
         const loginUserData= res.data.data[0]
 
         if(loginUserData){ 
-          setLoginedUserData(loginUserData);
+          setUserInfo({userInfo: loginUserData});
           showLoginModalClick()
+          const options= {
+            //30日間保存 
+            maxAge: 30 * 24 * 60 * 60,
+            path: "/",
+          }
+          setCookie(null, 'cookie', loginUserData.p_token, options);
+          
+
         }else{
             setErr(res.data.errmessage); 
-            }
           }
+        }
         
       catch (err) {
-        console.log(err,"err")
         const errorCode = typeof err.response === "undefined"?  500: err.response.status;
   
       }
@@ -68,7 +76,7 @@ return(
                 <p className={style.err}>{err}</p>
                 <button  onClick={Post} className={style.loginButton}>ログイン</button>
         
-                <button　onClick={showLoginModalClick}>✖️ 閉じる</button>
+                <button onClick={showLoginModalClick}> ✖ 閉じる</button>
             </div>
     </div>
   

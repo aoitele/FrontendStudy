@@ -4,14 +4,17 @@ import React from 'react';
 import LoginModal from '../../../modal/LoginModal'
 import MenuModal from '../../../modal/MenuModal'
 import  { useState }  from 'react';
-import { LoginedUserData } from '../../../../＠types/basicdata'
+import {useContext} from "react";
+import {AuthUserContext, AuthDispatchContext} from "../../../userprovider/AuthUser";
 
 
 
 const HeaderNav = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [LoginedUserData, setLoginedUserData] = useState<LoginedUserData |null>(null)
+  // const [LoginedUserData, setLoginedUserData] = useState<LoginedUserData |null>(null)
   const [showMenuModal, setShowMenuModal] = useState(false);
+  const authUser = useContext(AuthUserContext)
+  const setUserInfo= useContext(AuthDispatchContext);
   const [err, setErr]=useState("")
 
   const showLoginModalClick= ()=>{
@@ -19,10 +22,9 @@ const HeaderNav = () => {
         setErr("");
   }
 
-  console.log(LoginedUserData, "LoginUserInfd");
 
   const showLoginIcon=()=>{
-    if(!LoginedUserData){
+    if(authUser.userInfo == null){
       return( 
         <a onClick={showLoginModalClick}>
           <i className={'commonIcon iconSmp_login'}></i>
@@ -40,7 +42,7 @@ const HeaderNav = () => {
     
     <div className={style.wrapper}>
             
-      <LoginModal showLoginModal={showLoginModal} showLoginModalClick={showLoginModalClick}  setLoginedUserData={setLoginedUserData} setErr={setErr} err={err}/>
+      <LoginModal setUserInfo={setUserInfo} showLoginModal={showLoginModal} showLoginModalClick={showLoginModalClick}  setErr={setErr} err={err}/>
 
       <ul>
           <li>
@@ -60,7 +62,7 @@ const HeaderNav = () => {
               <i className={'commonIcon iconSmp_menu'} onClick={showMenuModalClick}></i>
             </a>
           </li>
-          <MenuModal showMenuModal={showMenuModal} LoginedUserData={LoginedUserData} showMenuModalClick={showMenuModalClick} showLoginModalClick={showLoginModalClick}></MenuModal>
+          <MenuModal authUser={authUser} showMenuModal={showMenuModal}  showMenuModalClick={showMenuModalClick} showLoginModalClick={showLoginModalClick}></MenuModal>
       
       </ul>
     

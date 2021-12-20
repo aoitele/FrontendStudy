@@ -16,19 +16,14 @@
     }
     .process{
         background-color: #f5f2ee;
-        dt{
-            border-top:solid #d2c8be 0.1rem;
+        border-top:solid #d2c8be 0.1rem;
             background-color: #fff;
             padding: 20px;
             display: flex;
-            .order{
+        .order{
                 font-size: 1.2rem;
                 font-weight: 200;
                 padding-right: 20px;
-            }
-            
-
-        
         }
     }
 }

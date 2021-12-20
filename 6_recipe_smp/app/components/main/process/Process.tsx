@@ -17,17 +17,15 @@ const Process:React.FC<Props> =({processData})=>{
                 <h6>Point !</h6>
                 <p> {processData[0].process_explain}</p>
          </div>
-        <dl className={style.process}>
          {
          pointRemovedData.map((data)=>{
              return(
-                <dt key={data.recipe_id}>
-                <dd className={style.order}>{data.process_number}</dd>
+                <dl key={data.process_number} className={style.process}>
+                <dt className={style.order}>{data.process_number}</dt>
                 <dd>{data.process_explain}</dd>
-               </dt>
+               </dl>
              )
          })}
-        </dl>
 
        
      </div>

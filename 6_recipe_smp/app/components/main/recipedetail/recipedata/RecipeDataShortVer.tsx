@@ -18,8 +18,8 @@ return(
             <p>{recipeData.category_name}</p>
         </li>
         <li className={style.time}>
-            <i className={'commonIcon iconTimer'}></　　i>
-            <p>調理時間：{recipeData.cooking_time}分</p>
+            <i className={'commonIcon iconTimer'}></i>
+            <p>調理時間:{recipeData.cooking_time}分</p>
         </li>
         <li className={style.id}>
             <span>ID</span>

@@ -7,17 +7,10 @@
         text-align: center;
         padding: 6px;
     }
-    dl{
-        dt{
-            display: flex;
-            padding:10px 10px 10px 70px;
-            margin:0 10px 10px;
-            background-color: #f5f2ee;
-
-          dd{
-              flex: 1;
-              
-          }
-        }
+    dl{display: flex;
+        padding:10px 70px 10px 70px;
+        margin:0 10px 10px;
+        background-color: #f5f2ee;
+        justify-content: space-between;
     }
 }

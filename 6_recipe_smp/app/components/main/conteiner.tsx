@@ -5,19 +5,22 @@ import Ingredients from './ingredients/Ingredients'
 import Process from './process/Process'
 import React, {useState } from 'react';
 import {RecipeApiResponse} from "../../＠types/basicdata";
+// import Link from 'next/link';
+
 
 interface Props {
   recipeDatas: RecipeApiResponse;
+  favoriteFlag: boolean;
+  setFavoriteFlag:React.Dispatch<React.SetStateAction<boolean>>;
 
 }
 
-    const Conteiner:React.FC<Props>=({recipeDatas}) => {
+    const Conteiner:React.FC<Props>=({ recipeDatas, favoriteFlag, setFavoriteFlag }) => {
     
     const [recipeData, ingredientData, processData] = [recipeDatas.recipeData, recipeDatas.ingredientData, recipeDatas.processData];
     const favoriteCount=Number(recipeData.favorite_count);
 
     const[count, setCount]=useState(favoriteCount);
-    const[favoriteFlag, setFavoriteFlag]=useState(true);
    
     const hanfleClickCount=(e)=>{
         setFavoriteFlag(!favoriteFlag); 
@@ -38,6 +41,9 @@ interface Props {
 
     return(
         <div className= {style.wrapper}>
+            {/* <Link href="/mypage/4">
+             <a>recipe4</a>
+           </Link> */}
             <div className={style.title} >
                     <div className={style.recipename}>
                     <h1>{recipeData.recipe_name}</h1>

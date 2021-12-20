@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { sqlExecuter } from '../../modules/database';
 import crypto from 'crypto-js'
-import { redirect } from 'next/dist/server/api-utils';
 
 
 export default async (req: NextApiRequest, res:NextApiResponse) => {
@@ -12,7 +11,6 @@ export default async (req: NextApiRequest, res:NextApiResponse) => {
     console.log(email, "password")
     console.log(key)
     const encrypted =crypto.AES.encrypt(email, key)
-    // console.log(encrypted.toString(), "EEEEEEEEEEE")
     
     const resData={data:[], errmessage:""}
 
@@ -28,7 +26,6 @@ export default async (req: NextApiRequest, res:NextApiResponse) => {
         }catch(err){
             console.log(err)
             }
-    // const GetToken= await sqlExecuter.any('select * from users where id=2');
    
 
     res.status(200).json(resData);

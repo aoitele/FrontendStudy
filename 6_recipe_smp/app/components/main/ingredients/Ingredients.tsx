@@ -15,17 +15,17 @@ const Ingredients:React.FC<Props>=({ingredientData})=>{
          </div>
         
 
-         <dl>
+         
         
-        {ingredientData.map((data)=>{
+        {ingredientData.map((data, index)=>{
           return(
-            <dt key={data.recipe_id}>
-            <dd>{data.ingredient_name}</dd>
+            <dl key={`ingredient${index}`}>
+            <dt>{data.ingredient_name}</dt>
             <dd>{data.ingredient_amount}</dd>
-           </dt>
+            </dl>
           )
         })}
-        </dl>
+        
      </div>
     )
 }

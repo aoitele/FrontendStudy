@@ -2,9 +2,7 @@ import Layout from '../components/layout/Layout';
 import HomeContainer from '../components/main/home/HomeContainer';
 import { AxiosClient } from '../modules/request';
 import { RecipeData } from '../＠types/basicdata';
-import {useContext, useEffect} from "react";
-import {AuthUserContext, AuthDispatchContext} from "../components/userprovider/AuthUser";
-import { tokenInspection } from '../modules/tokenInspection';
+
 
 
 type Props={
@@ -12,16 +10,6 @@ type Props={
 }
 
 const Home: React.FC<Props> = ({recipeData}) => {
-  const authUser = useContext(AuthUserContext)
-  const setUserInfo= useContext(AuthDispatchContext)
-    useEffect(()=>{
-      if(typeof(authUser.userInfo) == "undefined"){
-      tokenInspection().then(
-        value=>{setUserInfo({userInfo: value})}
-        )
-      }
-    },[])
-
 
   return (
     <div>

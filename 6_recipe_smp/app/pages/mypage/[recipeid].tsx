@@ -5,8 +5,7 @@ import Conteiner from '../../components/main/conteiner';
 import { AxiosClient } from '../../modules/request';
 import  { RecipeApiResponse } from "../../＠types/basicdata"
 import {useContext} from "react";
-import {AuthUserContext, AuthDispatchContext} from "../../components/userprovider/AuthUser";
-import { tokenInspection } from '../../modules/tokenInspection';
+import {AuthUserContext} from "../../components/userprovider/AuthUser";
 import { useRouter } from "next/router";
 import {useState } from 'react';
 
@@ -19,15 +18,8 @@ interface Props {
 }
 const MyPage :React.FC<Props>=({recipeDatas, errorCode})=>{
   const authUser = useContext(AuthUserContext)
-  const setUserInfo= useContext(AuthDispatchContext)
   const [favoriteFlag, setFavoriteFlag ]= useState<boolean>(false);
-    useEffect(()=>{
-      if(typeof(authUser.userInfo) == "undefined"){
-      tokenInspection().then(
-        value=>setUserInfo({userInfo: value}) 
-      )
-      }
-    },[])
+    
 
     useEffect(()=>{
       if(authUser.userInfo){

@@ -24,7 +24,7 @@ const HeaderNav = () => {
 
 
   const showLoginIcon=()=>{
-    if(authUser.userInfo == null){
+    if(authUser.userInfo === null){
       return( 
         <a onClick={showLoginModalClick}>
           <i className={'commonIcon iconSmp_login'}></i>

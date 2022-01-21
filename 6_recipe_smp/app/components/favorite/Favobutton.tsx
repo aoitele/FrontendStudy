@@ -1,33 +1,32 @@
 import style from './favobutton.module.scss';
 import React, { useState, useContext } from 'react';
 import { AuthUserContext } from '../userprovider/AuthUser';
-import { RecipeData } from '../../＠types/basicdata';
-import { AxiosClient } from '../../modules/request';
+import { RecipeDataProps } from "../../pages/mypage/[recipeid]";
 
-type favoProps = {
-  recipeid: number;
-  isFlag: boolean;
-}[];
 
 interface Props {
-  recipeData: RecipeData;
+  recipeDatas: RecipeDataProps;
+  setRecipeDatas: React.Dispatch<React.SetStateAction<RecipeDataProps>>;
 }
-const FavoButton: React.FC<Props> = ({ recipeData }) => {
+const FavoButton: React.FC<Props> = ({ recipeDatas ,setRecipeDatas}) => {
+  const [recipeData]=[recipeDatas.recipeData]
   const favoriteCount = Number(recipeData.favorite_count);
   const recipeid = recipeData.id;
   const [count, setCount] = useState(favoriteCount);
   const authUser = useContext(AuthUserContext);
 
   const handleClickCount = (e) => {
-    if (recipeData) {
+    if (recipeDatas.isFavorite) {
       setCount(count - 1);
+      setRecipeDatas({...recipeDatas, isFavorite: false})
     } else {
       setCount(count + 1);
+      setRecipeDatas({...recipeDatas, isFavorite: true})
     }
   };
 
   const heartColor = () => {
-    if (recipeData) {
+    if (recipeDatas.isFavorite) {
       return (
         <div>
           <span className={'commonIcon iconHeart'}>{count}</span>

@@ -1,28 +1,27 @@
-.artist{
-    background-color:  #f5f2ee;
-    border:solid #d2c8be 0.1px;
-    margin: 10px;
-    padding:10px;
-    
-    a{
-       display: flex; 
-       .artist_info{
-           margin-left:10px;
-           flex-grow: 1;
-           
-           .name{
-               font-weight: bold;
-           }
-       }
-       i {
-        margin-top: 20px;
-       }
+.artist {
+  background-color: #f5f2ee;
+  border: solid #d2c8be 0.1px;
+  margin: 10px;
+  padding: 10px;
+
+  a {
+    display: flex;
+    .artist_info {
+      margin-left: 10px;
+      flex-grow: 1;
+
+      .name {
+        font-weight: bold;
+      }
     }
+    i {
+      margin-top: 20px;
+    }
+  }
 }
 
-.explain{
-    background-color: #fff;   
-    margin: 10px;
-    padding:10px;
-   
+.explain {
+  background-color: #fff;
+  margin: 10px;
+  padding: 10px;
 }

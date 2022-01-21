@@ -4,7 +4,7 @@ module.exports = {
     config.watchOptions = {
       poll: 500,
       aggregateTimeout: 300,
-    }
-    return config
+    };
+    return config;
   },
-}
+};

@@ -1,16 +1,17 @@
-.wrapper{
-    border-top:solid #59340a;
-    background-color: #fff;
-    
-    .title{
-        font-weight: 200;
-        text-align: center;
-        padding: 6px;
-    }
-    dl{display: flex;
-        padding:10px 70px 10px 70px;
-        margin:0 10px 10px;
-        background-color: #f5f2ee;
-        justify-content: space-between;
-    }
+.wrapper {
+  border-top: solid #59340a;
+  background-color: #fff;
+
+  .title {
+    font-weight: 200;
+    text-align: center;
+    padding: 6px;
+  }
+  dl {
+    display: flex;
+    padding: 10px 70px 10px 70px;
+    margin: 0 10px 10px;
+    background-color: #f5f2ee;
+    justify-content: space-between;
+  }
 }

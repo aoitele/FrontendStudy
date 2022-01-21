@@ -1,27 +1,27 @@
-.wrapper{
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  margin: 10px;
+  padding: 10px;
+  li {
+    width: 50%;
     display: flex;
-    flex-wrap: wrap;
-    background-color: #fff;
-    margin:10px;
-    padding:10px;
-    li{
-        width: 50%;
-        display: flex;
-        padding: 5px 0;
-        p{
-            padding-left: 10px;
-        }
-        i{
-           padding-top: 5px; 
-        }
-        span{
-            border:burlywood solid 0.1rem;
-            background-color: rgb(254, 254, 254);
-            display: block;
-            padding:0 3px;
-            width: 35px;
-            border-radius: 5px;
-            text-align: center;
-        }
+    padding: 5px 0;
+    p {
+      padding-left: 10px;
     }
+    i {
+      padding-top: 5px;
+    }
+    span {
+      border: burlywood solid 0.1rem;
+      background-color: rgb(254, 254, 254);
+      display: block;
+      padding: 0 3px;
+      width: 35px;
+      border-radius: 5px;
+      text-align: center;
+    }
+  }
 }

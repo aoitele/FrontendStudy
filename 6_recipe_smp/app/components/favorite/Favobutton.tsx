@@ -1,15 +1,14 @@
 import style from './favobutton.module.scss';
 import React, { useState, useContext } from 'react';
 import { AuthUserContext } from '../userprovider/AuthUser';
-import { RecipeDataProps } from "../../pages/mypage/[recipeid]";
-
+import { RecipeDataProps } from '../../pages/mypage/[recipeid]';
 
 interface Props {
   recipeDatas: RecipeDataProps;
   setRecipeDatas: React.Dispatch<React.SetStateAction<RecipeDataProps>>;
 }
-const FavoButton: React.FC<Props> = ({ recipeDatas ,setRecipeDatas}) => {
-  const [recipeData]=[recipeDatas.recipeData]
+const FavoButton: React.FC<Props> = ({ recipeDatas, setRecipeDatas }) => {
+  const [recipeData] = [recipeDatas.recipeData];
   const favoriteCount = Number(recipeData.favorite_count);
   const recipeid = recipeData.id;
   const [count, setCount] = useState(favoriteCount);
@@ -18,10 +17,10 @@ const FavoButton: React.FC<Props> = ({ recipeDatas ,setRecipeDatas}) => {
   const handleClickCount = (e) => {
     if (recipeDatas.isFavorite) {
       setCount(count - 1);
-      setRecipeDatas({...recipeDatas, isFavorite: false})
+      setRecipeDatas({ ...recipeDatas, isFavorite: false });
     } else {
       setCount(count + 1);
-      setRecipeDatas({...recipeDatas, isFavorite: true})
+      setRecipeDatas({ ...recipeDatas, isFavorite: true });
     }
   };
 

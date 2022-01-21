@@ -18,13 +18,13 @@ interface Props {
   errorCode: number;
 }
 
-
 const MyPage: React.FC<Props> = ({ initRecipeDatas, errorCode }) => {
   const authUser = useContext(AuthUserContext);
   const router = useRouter();
-  initRecipeDatas.isFavorite=undefined;
-  
-  const [recipeDatas, setRecipeDatas]= useState<RecipeDataProps>(initRecipeDatas)
+  initRecipeDatas.isFavorite = undefined;
+
+  const [recipeDatas, setRecipeDatas] =
+    useState<RecipeDataProps>(initRecipeDatas);
 
   useEffect(() => {
     if (authUser.userInfo) {
@@ -32,16 +32,16 @@ const MyPage: React.FC<Props> = ({ initRecipeDatas, errorCode }) => {
       const userid = authUser.userInfo.id;
       favoInspection(userid, recipeid)
         .then((data) => {
-          setRecipeDatas({...recipeDatas, isFavorite: true})
+          setRecipeDatas({ ...recipeDatas, isFavorite: true });
         })
         .catch((err) => {
-          setRecipeDatas({...recipeDatas, isFavorite: false})
+          setRecipeDatas({ ...recipeDatas, isFavorite: false });
         });
-    }else{
-     setRecipeDatas({...recipeDatas, isFavorite: false})
+    } else {
+      setRecipeDatas({ ...recipeDatas, isFavorite: false });
     }
   }, [authUser.userInfo]);
-  console.log(recipeDatas, "recipe")
+  console.log(recipeDatas, 'recipe');
 
   if (errorCode) {
     return <Error statusCode={errorCode} />;
@@ -50,7 +50,10 @@ const MyPage: React.FC<Props> = ({ initRecipeDatas, errorCode }) => {
   return (
     <div>
       <Layout>
-        <Conteiner recipeDatas={recipeDatas} setRecipeDatas={setRecipeDatas}></Conteiner>
+        <Conteiner
+          recipeDatas={recipeDatas}
+          setRecipeDatas={setRecipeDatas}
+        ></Conteiner>
       </Layout>
     </div>
   );

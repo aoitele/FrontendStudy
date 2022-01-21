@@ -2,7 +2,7 @@ export interface RecipeApiResponse {
   recipeData: RecipeData;
   ingredientData: IngredientData;
   processData: ProcessData;
-};
+}
 
 export type RecipeData = {
   id: number;

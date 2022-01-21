@@ -18,24 +18,32 @@ interface Props {
   errorCode: number;
 }
 
-
 const MyPage: React.FC<Props> = ({ initRecipeDatas, errorCode }) => {
   const authUser = useContext(AuthUserContext);
   const router = useRouter();
-  initRecipeDatas.isFavorite=undefined;
-  
-  const [recipeDatas, setRecipeDatas]= useState<RecipeDataProps>(initRecipeDatas)
+  initRecipeDatas.isFavorite = undefined;
+
+  const [recipeDatas, setRecipeDatas] =
+    useState<RecipeDataProps>(initRecipeDatas);
 
   useEffect(() => {
     if (authUser.userInfo) {
       const recipeid = router.query.recipeid;
       const userid = authUser.userInfo.id;
       favoInspection(userid, recipeid)
-        .then((datas) => {
+        .then((data) => {
+          if (data.length) {
+            setRecipeDatas({ ...recipeDatas, isFavorite: true });
+          } else {
+            console.log(data);
+            setRecipeDatas({ ...recipeDatas, isFavorite: false });
+          }
         })
         .catch((err) => {
           console.log(err);
         });
+    } else {
+      setRecipeDatas({ ...recipeDatas, isFavorite: false });
     }
   }, [authUser.userInfo]);
 
@@ -46,7 +54,10 @@ const MyPage: React.FC<Props> = ({ initRecipeDatas, errorCode }) => {
   return (
     <div>
       <Layout>
-        <Conteiner recipeDatas={recipeDatas}></Conteiner>
+        <Conteiner
+          recipeDatas={recipeDatas}
+          setRecipeDatas={setRecipeDatas}
+        ></Conteiner>
       </Layout>
     </div>
   );

@@ -1,4 +1,4 @@
-export type RecipeApiResponse = {
+export interface RecipeApiResponse {
   recipeData: RecipeData;
   ingredientData: IngredientData;
   processData: ProcessData;

@@ -3,13 +3,13 @@ import RecipeDetail from './recipedetail/RecipeDetail';
 import Ingredients from './ingredients/Ingredients';
 import Process from './process/Process';
 import React from 'react';
-import { RecipeApiResponse } from '../../＠types/basicdata';
 import FavoButton from '../favorite/FavoButton';
+import { RecipeDataProps } from "../../pages/mypage/[recipeid]";
 
 // import Link from 'next/link';
 
 interface Props {
-  recipeDatas: RecipeApiResponse;
+  recipeDatas: RecipeDataProps;
 }
 
 const Conteiner: React.FC<Props> = ({ recipeDatas }) => {

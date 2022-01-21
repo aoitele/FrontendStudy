@@ -1,6 +1,6 @@
 import style from './favobutton.module.scss';
 import React, { useState, useContext } from 'react';
-import { AuthUserContext } from '../../components/userprovider/AuthUser';
+import { AuthUserContext } from '../userprovider/AuthUser';
 import { RecipeData } from '../../＠types/basicdata';
 import { AxiosClient } from '../../modules/request';
 

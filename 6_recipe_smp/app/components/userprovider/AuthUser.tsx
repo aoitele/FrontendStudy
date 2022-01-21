@@ -30,7 +30,7 @@ const AuthUser: React.FC = (props) => {
 
   useEffect(() => {
     if (typeof userInfo.userInfo == 'undefined') {
-      tokenInspection().then((value) => setUserInfo({ userInfo: undefined }));
+      tokenInspection().then((value) => setUserInfo({ userInfo: value }));
     }
   }, []);
   return (

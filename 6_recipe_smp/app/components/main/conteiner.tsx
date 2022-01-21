@@ -44,7 +44,7 @@ const Conteiner: React.FC<Props> = ({ recipeDatas, setRecipeDatas }) => {
         <FavoButton
           recipeDatas={recipeDatas}
           setRecipeDatas={setRecipeDatas}
-        ></FavoButton>
+        />
       )}
     </div>
   );

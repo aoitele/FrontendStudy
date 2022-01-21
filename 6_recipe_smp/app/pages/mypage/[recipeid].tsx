@@ -31,11 +31,11 @@ const MyPage: React.FC<Props> = ({ initRecipeDatas, errorCode }) => {
       const recipeid = router.query.recipeid;
       const userid = authUser.userInfo.id;
       favoInspection(userid, recipeid)
-        .then(() => {
+        .then((data) => {
           setRecipeDatas({...recipeDatas, isFavorite: true})
         })
         .catch((err) => {
-          console.log(err);
+          setRecipeDatas({...recipeDatas, isFavorite: false})
         });
     }else{
      setRecipeDatas({...recipeDatas, isFavorite: false})

@@ -17,7 +17,7 @@ async function favoInspection(userid, recipeid): Promise<CheckfavoAxios> {
     return res.data;
   } else {
     console.log('nocheckfavodata');
-    return null;
+    throw new Error("nodata");
   }
 }
 

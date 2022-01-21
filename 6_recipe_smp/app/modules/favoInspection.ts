@@ -13,12 +13,7 @@ async function favoInspection(userid, recipeid): Promise<CheckfavoAxios> {
   const res = await axios.get<CheckfavoAxios>('recipe/checkfavo', {
     params: { userid: userid, recipeid: recipeid },
   });
-  if (res.data.length) {
-    return res.data;
-  } else {
-    console.log('nocheckfavodata');
-    throw new Error('nodata');
-  }
+  return res.data;
 }
 
 export default favoInspection;

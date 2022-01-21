@@ -32,16 +32,20 @@ const MyPage: React.FC<Props> = ({ initRecipeDatas, errorCode }) => {
       const userid = authUser.userInfo.id;
       favoInspection(userid, recipeid)
         .then((data) => {
-          setRecipeDatas({ ...recipeDatas, isFavorite: true });
+          if (data.length) {
+            setRecipeDatas({ ...recipeDatas, isFavorite: true });
+          } else {
+            console.log(data);
+            setRecipeDatas({ ...recipeDatas, isFavorite: false });
+          }
         })
         .catch((err) => {
-          setRecipeDatas({ ...recipeDatas, isFavorite: false });
+          console.log(err);
         });
     } else {
       setRecipeDatas({ ...recipeDatas, isFavorite: false });
     }
   }, [authUser.userInfo]);
-  console.log(recipeDatas, 'recipe');
 
   if (errorCode) {
     return <Error statusCode={errorCode} />;

@@ -43,6 +43,3 @@ null,
 null
 );
 
-select * from users;
-
-update users set p_token='gg'  where mail= 'dora@gmail.com' and login_password= 'dora' RETURNING id ;

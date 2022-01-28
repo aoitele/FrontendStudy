@@ -29,6 +29,5 @@ values
 (10, '粗挽き胡椒', '適量', ''),
 (10, 'パルメザンチーズ', '大さじ1', '');
 
--- drop table ingredient;
-select * from ingredient;
+
 

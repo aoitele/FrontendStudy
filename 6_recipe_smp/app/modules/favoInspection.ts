@@ -1,4 +1,3 @@
-import { AxiosResponse } from 'axios';
 import { AxiosClient } from '../modules/request';
 
 type CheckfavoAxios =

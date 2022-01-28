@@ -41,10 +41,7 @@ const Conteiner: React.FC<Props> = ({ recipeDatas, setRecipeDatas }) => {
       <Ingredients ingredientData={ingredientData} />
       <Process processData={processData} />
       {typeof authUser.userInfo !== 'undefined' && (
-        <FavoButton
-          recipeDatas={recipeDatas}
-          setRecipeDatas={setRecipeDatas}
-        />
+        <FavoButton recipeDatas={recipeDatas} setRecipeDatas={setRecipeDatas} />
       )}
     </div>
   );

@@ -6,7 +6,6 @@ const Header = () => {
     <div className={style.wrapper}>
       <div className={style.inner}>
         <div className={style.logo}>
-          
           <a href='/'>
             <img
               src='https://asset.oceans-nadia.com/2018/pc/images/nadia-logo.jpg'

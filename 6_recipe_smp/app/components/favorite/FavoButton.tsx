@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react';
 import { AuthUserContext } from '../userprovider/AuthUser';
 import { RecipeDataProps } from '../../pages/mypage/[recipeid]';
 import favopost from '../../modules/favopost';
-import favodelete from '../../modules/favodelete'
+import favodelete from '../../modules/favodelete';
 
 interface Props {
   recipeDatas: RecipeDataProps;

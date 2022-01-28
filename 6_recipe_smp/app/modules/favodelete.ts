@@ -6,15 +6,14 @@ const favodelete = (userid, recipeid) => {
   favoInspection(userid, recipeid).then((data) => {
     if (data.length) {
       try {
-        console.log(data, "bedeleteddata")
         axios.delete('recipe/deletefavo', {
           params: { userid: userid, recipeid: recipeid },
         });
       } catch (err) {
         console.log(err);
       }
-    }else{
-        console.log(data, "nodata")
+    } else {
+      console.log(data, 'nodata');
     }
   });
 };
